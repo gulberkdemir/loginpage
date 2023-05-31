@@ -1,7 +1,7 @@
 <p-card styleClass="user-form"  class="flex justify-content-center">
 
 
-<form [formGroup]="userForm" (ngSubmit)="login()">
+<form [formGroup]="userForm" (ngSubmit)="Submit()">
   <div class="field">
       <label for="firstName" class="block">First Name</label>
       <input id="firstName" type="text" pInputText placeholder="First Name" formControlName="firstName"/>
@@ -16,12 +16,17 @@
   <div class="field">
     <label for="email" class="block">Email</label>
     <input id="email" type="email" pInputText placeholder="Email" formControlName="email"/>
+    <small class="p-error block" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.dirty && userForm.get('email')?.invalid && userForm.get('email')?.touched ">Email is required</small>
+    <small class="p-error block" *ngIf="!!userForm.get('email') && userForm.get('email')?.hasError('pattern')">Please enter a correct email format. Format should be myusername@cryptobunq.com</small>
   </div>
   <div class="field">
     <label for="password" class="block">Password</label>
     <input id="password" type="password" pInputText placeholder="Password" formControlName="password"/>
+    <small class="p-error block" *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.dirty">Password is required</small>
+    <small class="p-error block" *ngIf="userForm.get('password')?.hasError('pattern')">Password should be eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:</small>
   </div>
-  <button pButton type="submit" label="Login" [disabled]="userForm.invalid"></button>
+<!--  <button pButton type="submit" label="Login" [disabled]="userForm.invalid"></button>-->
+  <button pButton type="submit" label="Login" ></button>
 </form>
 
 </p-card>
