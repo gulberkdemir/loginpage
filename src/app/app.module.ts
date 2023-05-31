@@ -8,6 +8,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AuthComponent } from './auth/auth.component';
 import {CardModule} from "primeng/card";
+import {PasswordModule} from "primeng/password";
+import {DividerModule} from "primeng/divider";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import {CardModule} from "primeng/card";
     InputTextModule,
     FormsModule,
     ReactiveFormsModule,
-    CardModule
+    CardModule,
+    PasswordModule,
+    DividerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

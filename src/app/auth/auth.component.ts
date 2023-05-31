@@ -40,7 +40,7 @@ export class AuthComponent {
     const email = this.userForm.controls.email.value;
     const password = this.userForm.controls.password.value;
     let authObs: Observable<User>;
-    let obs: Observable<any>;
+    let obs: Observable<Observable<User>>;
 
 
 
@@ -49,7 +49,7 @@ export class AuthComponent {
 
 
     authObs = this.authService.login(firstname!, lastname!, email!, password!);
-    console.log('hadi')
+
 
 
 

@@ -5,5 +5,5 @@ export const ValidUser: User =
     firstname: 'userfirstname',
     lastname: 'userlastname',
     email: 'user@company.com',
-    password: 'Pasword1!'
+    password: 'Pass123!'
   }

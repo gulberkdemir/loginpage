@@ -3,10 +3,19 @@
  ::ng-deep .user-form{
   width: 30%;
    display: block;
+   p-password .p-password, p-password input{
+     width: 100%;
+   }
 }
 
  .field{
    display: flex;
    flex-direction: column;
    justify-content: center;
+ }
+
+ label::after {
+   content: "*";
+   color: red;
+   padding: 0 0.2rem;
  }
