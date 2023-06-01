@@ -38,7 +38,7 @@ export class AuthService {
 
   handleError(error: HttpErrorResponse){
     console.log(error.message);
-    this.messageService.add({ key: 'myKey2', severity: 'error', summary: 'Email/password is not correct', detail: `${error.message}` });
+    this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Email/password is not correct', detail: `${error.message}` });
 
   }
 }

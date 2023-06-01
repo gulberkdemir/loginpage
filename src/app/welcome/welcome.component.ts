@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuItem} from "primeng/api";
+import {MenuItem, MessageService} from "primeng/api";
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,21 +9,16 @@ import {Router} from "@angular/router";
 })
 export class WelcomeComponent implements OnInit{
   items!: MenuItem[];
-
   activeItem!: MenuItem;
   authorizedUserName: string = '';
   authorizedUserLastName: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private messageService: MessageService) {
   }
-
-
 
   ngOnInit() {
     this.authorizedUserName = JSON.parse(localStorage.getItem('authorizedUserData')!).firstname;
     this.authorizedUserLastName = JSON.parse(localStorage.getItem('authorizedUserData')!).lastname;
-
-
 
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home' },
@@ -44,6 +39,12 @@ export class WelcomeComponent implements OnInit{
     if(this.activeItem.label=== 'Sign-out'){
       this.router.navigate(['/login']);
       localStorage.clear();
+      this.messageService.add({
+        key: 'myKey1',
+        severity: 'success',
+        summary: `User could logout successfully`,
+        detail: `User could logout successfully`
+      });
     }
   }
 

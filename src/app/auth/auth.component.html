@@ -1,47 +1,52 @@
 <div class="card">
-<p-card styleClass="user-form"  class="flex card-container flex-row flex-wrap justify-content-center align-items-center h-screen">
-  <h1>Login</h1>
-<form [formGroup]="userForm" (ngSubmit)="Submit()">
-  <div class="field">
-      <label for="firstName" class="block" labelStyleClass="label-required">First Name</label>
-      <input id="firstName" type="text" pInputText placeholder="First Name" formControlName="firstName"/>
-    <small class="p-error block" *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">First name is required</small>
-  </div>
+  <p-card styleClass="user-form"
+          class="flex card-container flex-row flex-wrap justify-content-center align-items-center h-screen">
+    <h1>Login</h1>
+    <form [formGroup]="userForm" (ngSubmit)="Submit()">
+      <div class="field">
+        <label for="firstName" class="block" labelStyleClass="label-required">First Name</label>
+        <input id="firstName" type="text" pInputText placeholder="First Name" formControlName="firstName"/>
+        <small class="p-error block" *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">First
+          name is required</small>
+      </div>
 
-  <div class="field">
-    <label for="lastName" class="block">Last Name</label>
-    <input id="lastName" type="text" pInputText placeholder="Last Name" formControlName="lastName"/>
-    <small class="p-error block" *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched">Last name is required</small>
-  </div>
-  <div class="field">
-    <label for="email" class="block">Email</label>
-    <input id="email" type="email" pInputText placeholder="Email" formControlName="email"/>
-    <small class="p-error block" *ngIf="!userForm.get('email')?.hasError('pattern') && userForm.get('email')?.invalid &&  userForm.get('email')?.touched ">Email is required</small>
-    <small class="p-error block" *ngIf="userForm.get('email')?.hasError('pattern')">Please enter a correct email format. For example: myusername@cryptobunq.com</small>
-  </div>
+      <div class="field">
+        <label for="lastName" class="block">Last Name</label>
+        <input id="lastName" type="text" pInputText placeholder="Last Name" formControlName="lastName"/>
+        <small class="p-error block" *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched">Last
+          name is required</small>
+      </div>
+      <div class="field">
+        <label for="email" class="block">Email</label>
+        <input id="email" type="email" pInputText placeholder="Email" formControlName="email"/>
+        <small class="p-error block"
+               *ngIf="!userForm.get('email')?.hasError('pattern') && userForm.get('email')?.invalid &&  userForm.get('email')?.touched ">Email
+          is required</small>
+        <small class="p-error block" *ngIf="userForm.get('email')?.hasError('pattern')">Please enter a correct email
+          format. For example: myusername@cryptobunq.com</small>
+      </div>
 
-  <div class="field">
-    <label for="password" class="block">Password</label>
-    <p-password id="password" formControlName="password" [feedback]="true" >
-      <ng-template pTemplate="header">
-        <h6>Pick a password</h6>
-      </ng-template>
-      <ng-template pTemplate="footer">
-        <p-divider></p-divider>
-        <p class="mt-2">Suggestions</p>
-        <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
-          <li>At least one lowercase</li>
-          <li>At least one uppercase</li>
-          <li>At least one numeric</li>
-          <li>Minimum 8 characters</li>
-        </ul>
-      </ng-template>
-    </p-password>
-    <small class="p-error block" *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.dirty">Password is required</small>
-  </div>
-  <button pButton type="submit" label="Login" [disabled]="userForm.invalid"></button>
-<!--  <button pButton type="submit" label="Login" ></button>-->
-</form>
-</p-card>
-
+      <div class="field">
+        <label for="password" class="block">Password</label>
+        <p-password id="password" formControlName="password" [feedback]="true">
+          <ng-template pTemplate="header">
+            <h6>Pick a password</h6>
+          </ng-template>
+          <ng-template pTemplate="footer">
+            <p-divider></p-divider>
+            <p class="mt-2">Suggestions</p>
+            <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+              <li>At least one lowercase</li>
+              <li>At least one uppercase</li>
+              <li>At least one numeric</li>
+              <li>Minimum 8 characters</li>
+            </ul>
+          </ng-template>
+        </p-password>
+        <small class="p-error block" *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.dirty">Password
+          is required</small>
+      </div>
+      <button pButton type="submit" label="Login" [disabled]="userForm.invalid"></button>
+    </form>
+  </p-card>
 </div>

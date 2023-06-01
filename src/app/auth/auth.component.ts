@@ -14,10 +14,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent {
-
-
   userObject = {} as User;
-
 
   userForm = this.fb.group({
     firstName: ['', Validators.required],
@@ -27,7 +24,9 @@ export class AuthComponent {
 
   })
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private messageService: MessageService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService,
+              private messageService: MessageService,
+              private router: Router) {
   }
 
   Submit() {
@@ -37,7 +36,7 @@ export class AuthComponent {
     this.ValidateUserLogin(this.userObject);
   }
 
-  ValidateUserLogin(userObj: User){
+  ValidateUserLogin(userObj: User) {
 
     this.userObject.firstname = this.userForm.controls.firstName.value!;
     this.userObject.lastname = this.userForm.controls.lastName.value!;
@@ -73,11 +72,8 @@ export class AuthComponent {
     this.router.navigate(['/welcome']);
   }
 
-  SaveUserInLocalStorage(value: User){
+  SaveUserInLocalStorage(value: User) {
     localStorage.setItem('authorizedUserData', JSON.stringify(value));
-
   }
-
-
 
 }
