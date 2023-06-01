@@ -13,6 +13,8 @@ import {DividerModule} from "primeng/divider";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
+import {MessageService} from "primeng/api";
+import {RippleModule} from "primeng/ripple";
 
 
 
@@ -33,9 +35,10 @@ import { MessagesModule } from 'primeng/messages';
     DividerModule,
     BrowserAnimationsModule,
     ToastModule,
-    MessagesModule
+    MessagesModule,
+    RippleModule
   ],
-  providers: [],
+  providers: [ MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
