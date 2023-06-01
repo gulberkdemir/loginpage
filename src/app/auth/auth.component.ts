@@ -30,20 +30,21 @@ export class AuthComponent {
   }
 
   Submit() {
-
     if (!this.userForm.valid) {
       return;
     }
+    this.ValidateUserLogin(this.userObject);
+  }
 
-    const firstname = this.userForm.controls.firstName.value;
-    const lastname = this.userForm.controls.lastName.value;
+  ValidateUserLogin(userObj: User){
 
-    const email = this.userForm.controls.email.value;
-    const password = this.userForm.controls.password.value;
+    this.userObject.firstname = this.userForm.controls.firstName.value!;
+    this.userObject.lastname = this.userForm.controls.lastName.value!;
+    this.userObject.email = this.userForm.controls.email.value!;
+    this.userObject.password = this.userForm.controls.password.value!;
+
     let newObs: Observable<User>;
-
-
-    newObs = this.authService.login(firstname!, lastname!, email!, password!).pipe(map(user => {
+    newObs = this.authService.login(userObj).pipe(map(user => {
       if (user.email === ValidUser.email && user.password === ValidUser.password) {
         return user;
 
@@ -65,9 +66,16 @@ export class AuthComponent {
       key: 'myKey1',
       severity: 'success',
       summary: `User could login successfully`,
-      detail: `${value.firstname} ${value.lastname} could login`
+      detail: `${value.firstname} ${value.lastname} could login successfully`
     });
+    this.SaveUserInLocalStorage(value);
   }
+
+  SaveUserInLocalStorage(value: User){
+    localStorage.setItem('userData', JSON.stringify(value));
+
+  }
+
 
 
 }
