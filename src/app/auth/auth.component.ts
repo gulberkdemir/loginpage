@@ -5,6 +5,7 @@ import {filter, map, Observable, of, throwError} from "rxjs";
 import {AuthService} from "./auth.service";
 import {ValidUser} from "../app.constants";
 import {MessageService} from "primeng/api";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -26,7 +27,7 @@ export class AuthComponent {
 
   })
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private messageService: MessageService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private messageService: MessageService, private router: Router) {
   }
 
   Submit() {
@@ -69,10 +70,11 @@ export class AuthComponent {
       detail: `${value.firstname} ${value.lastname} could login successfully`
     });
     this.SaveUserInLocalStorage(value);
+    this.router.navigate(['/welcome']);
   }
 
   SaveUserInLocalStorage(value: User){
-    localStorage.setItem('userData', JSON.stringify(value));
+    localStorage.setItem('authorizedUserData', JSON.stringify(value));
 
   }
 

@@ -1,14 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-//@import url("../node_modules/primeicons/primeicons.css");
-//@import url("../node_modules/primeng/resources/themes/lara-light-blue/theme.css");
-//@import url("../node_modules/primeng/resources/primeng.min.css");
-
-//@import '~primeicons/primeicons.css';
-//@import '~primeng/resources/themes/lara-light-blue/theme.css';
-//@import '~primeng/resources/primeng.min.css';
-
 
 body {
   font-family: var(--font-family);
   padding: 2rem;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://cdn.24.co.za/files/Cms/General/d/3600/326138afef754bba871a8f1a6b8ed86a.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }

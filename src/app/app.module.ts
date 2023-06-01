@@ -15,29 +15,33 @@ import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import {MessageService} from "primeng/api";
 import {RippleModule} from "primeng/ripple";
+import { WelcomeComponent } from './welcome/welcome.component';
+import {TabMenuModule} from "primeng/tabmenu";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    WelcomeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule,
-    InputTextModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CardModule,
-    PasswordModule,
-    DividerModule,
-    BrowserAnimationsModule,
-    ToastModule,
-    MessagesModule,
-    RippleModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        InputTextModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CardModule,
+        PasswordModule,
+        DividerModule,
+        BrowserAnimationsModule,
+        ToastModule,
+        MessagesModule,
+        RippleModule,
+        TabMenuModule
+    ],
   providers: [ MessageService],
   bootstrap: [AppComponent]
 })
