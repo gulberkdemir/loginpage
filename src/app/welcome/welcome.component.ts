@@ -32,7 +32,7 @@ export class WelcomeComponent implements OnInit{
       { label: 'Documentation', icon: 'pi pi-fw pi-file' },
       { label: 'Settings', icon: 'pi pi-fw pi-cog' },
       { label: 'Vehicle', icon: 'pi pi-fw  pi-car' },
-      { label: this.authorizedUserName, icon: 'pi pi-fw  pi-user' },
+      { label: this.authorizedUserName.charAt(0).toUpperCase() + this.authorizedUserName.slice(1), icon: 'pi pi-fw  pi-user' },
       { label: 'Sign-out', icon: 'pi pi-sign-out' }
     ];
 
