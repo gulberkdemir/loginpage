@@ -21,12 +21,6 @@ export class AuthService {
 
   constructor(private messageService: MessageService) { }
 
-  // getUsers(firstname:string, lastname:string, email: string, password: string): Observable<User[]> {
-  //   // this.mockUsers[0].firstname = firstname;
-  //   //
-  //   // return of(this.mockUsers);
-  // }
-
   login(userObj: User ): Observable<User> {
     this.mockUsers.firstname = userObj.firstname;
     this.mockUsers.lastname = userObj.lastname;
@@ -37,7 +31,6 @@ export class AuthService {
   }
 
   handleError(error: HttpErrorResponse){
-    console.log(error.message);
     this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Email/password is not correct', detail: `${error.message}` });
 
   }
