@@ -11,6 +11,9 @@ import {CardModule} from "primeng/card";
 import {PasswordModule} from "primeng/password";
 import {DividerModule} from "primeng/divider";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
+
 
 
 @NgModule({
@@ -28,7 +31,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     CardModule,
     PasswordModule,
     DividerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

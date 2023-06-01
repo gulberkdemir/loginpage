@@ -4,6 +4,7 @@ import {User} from "../shared/user.model";
 import {filter, map, Observable, of, throwError} from "rxjs";
 import {AuthService} from "./auth.service";
 import {ValidUser} from "../app.constants";
+import {MessageService} from "primeng/api";
 
 
 
@@ -56,27 +57,23 @@ export class AuthComponent {
 
     obs = authObs.pipe(map(user => {
         if (user.email === ValidUser.email && user.password === ValidUser.password) {
-          return authObs.pipe(filter(user => (user.email === ValidUser.email && user.password === ValidUser.password)))
+          console.log('aaa')
+          return of(user)
+
         }else {
-          throw Error("You could not login");
+          console.log('bbbb')
+          throw new Error('You could not login');
         }
       }
     ))
 
-    obs.subscribe( a => console.log(a), e => console.log(e));
 
 
-    // obs = this.srcArray.pipe(
-    //   map(val => {
-    //     let result = (val as number) * 2;
-    //     if (Number.isNaN(result)) {
-    //       console.log("Error in the observable");
-    //       throw Error("Not a Number");
-    //     }
-    //     return result;
-    //   })
-    // );
 
+    obs.subscribe({
+      next: (val) => console.log(val),
+      error: (error) => this.authService.handleError( error)
+    });
 
 
 
