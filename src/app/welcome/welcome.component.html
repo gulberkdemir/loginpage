@@ -2,4 +2,4 @@
   <button type="button" pButton pRipple label="Activate Last" (click)="activateLast()" class="mb-3"></button>
   <p-tabMenu [model]="items" [activeItem]="activeItem" (activeItemChange)="onActiveItemChange($event)"></p-tabMenu>
 </div>
-<h1>Welcome {{this.authorizedUserName}} {{this.authorizedUserLastName}}</h1>
+<h1 class="text-orange-500 hover:text-cyan-900">Welcome {{this.authorizedUserName}} {{this.authorizedUserLastName}}</h1>

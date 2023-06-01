@@ -17,7 +17,7 @@
     <label for="email" class="block">Email</label>
     <input id="email" type="email" pInputText placeholder="Email" formControlName="email"/>
     <small class="p-error block" *ngIf="!userForm.get('email')?.hasError('pattern') && userForm.get('email')?.invalid &&  userForm.get('email')?.touched ">Email is required</small>
-    <small class="p-error block" *ngIf="userForm.get('email')?.hasError('pattern')">Please enter a correct email format. Format should be myusername@cryptobunq.com</small>
+    <small class="p-error block" *ngIf="userForm.get('email')?.hasError('pattern')">Please enter a correct email format. For example: myusername@cryptobunq.com</small>
   </div>
 
   <div class="field">

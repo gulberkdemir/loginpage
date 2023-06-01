@@ -1,9 +1,6 @@
-.container{
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card, p-card{
+  height: 80vh!important;
+
 }
 
  ::ng-deep .user-form{

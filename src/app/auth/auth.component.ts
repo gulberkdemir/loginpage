@@ -3,7 +3,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {User} from "../shared/user.model";
 import {filter, map, Observable, of, throwError} from "rxjs";
 import {AuthService} from "./auth.service";
-import {ValidUser} from "../app.constants";
+import {passwordRegex, ValidUser} from "../app.constants";
 import {MessageService} from "primeng/api";
 import {Router} from "@angular/router";
 
@@ -15,14 +15,14 @@ import {Router} from "@angular/router";
 })
 export class AuthComponent {
 
-  passwordRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
   userObject = {} as User;
 
 
   userForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    email: ['', [Validators.required, Validators.pattern(this.passwordRegex)]],
+    email: ['', [Validators.required, Validators.pattern(passwordRegex)]],
     password: ['', [Validators.required]]
 
   })
